@@ -1,48 +1,65 @@
 import { useContext, useState } from "react";
 import { TransactionContext } from "../utils/TransactionContext";
 
-function NewTransaction(){
+function NewTransaction() {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState('');
-    const {transaction, updateTransaction, setTransaction} = useContext(TransactionContext);
+    const { transaction, updateTransaction, setTransaction } = useContext(TransactionContext);
 
 
-    const AddTransaction = (e)=>{
+    const AddTransaction = (e) => {
         e.preventDefault();
 
-        let id = transaction.length==0 ? 0 : transaction[0].id+1;
+        if(text == '' || amount == ''){
+            alert('Fill all the fields');
+            return;
+        }
+
+        let id = transaction.length == 0 ? 0 : transaction[0].id + 1;
         const currTrans = {
             id: id,
             text: text,
             amount: amount
         }
 
-        console.log(currTrans);
+
         transaction.unshift(currTrans);
-        // setTransaction(transaction);
         updateTransaction(transaction);
 
-        console.log(transaction)
+        setText('');
+        setAmount('')
     }
-    return(
+    return (
 
 
         <div>
 
-            <h3 className="font-bold text-2xl mt-5">Add new transaction</h3>
+            <h3 className="font-bold text-2xl mt-3">Add new transaction</h3>
             <hr />
-            <form className="flex flex-col">
-                <div className="flex flex-col">
-                    
-                    <label htmlFor="text">Text</label>
-                    <input type="text" placeholder="Enter text..." value={text} onChange={(e)=>setText(e.target.value)}/>
-                </div>
-                <div className="flex flex-col">
-                    <label htmlFor="amount">Amount <br /> (negative-expense, positive- income)</label>
-                    <input type="number" placeholder="Enter amount..." value={amount} onChange={(e)=>setAmount(e.target.value)}/>
+            <form className="flex flex-col my-2">
+                <div className="flex flex-col -2">
+                    <label htmlFor="text" className="text-lg font-semibold">Text</label>
+                    <input type="text" 
+                    placeholder="Enter text..." 
+                    value={text} 
+                    onChange={(e) => setText(e.target.value)}
+                    className="border border-gray-500 p-1 my-1 rounded"
+                    />
                 </div>
 
-                <button type="submit" onClick={AddTransaction}>Add transaction</button>
+                <div className="flex flex-col my-2">
+                    <label htmlFor="amount" className="text-lg font-semibold">Amount  (negative-expense, positive- income)</label>
+                    <input type="number"
+                     placeholder="Enter amount..."
+                    value={amount} 
+                    onChange={(e) => setAmount(e.target.value)}
+                    className="border border-gray-500 p-1 my-1 rounded"/>
+                </div>
+
+                <button type="submit" 
+                onClick={AddTransaction}
+                className="border border-gray-500 p-1 text-white bg-gray-500 rounded"
+                >Add transaction</button>
 
 
             </form>

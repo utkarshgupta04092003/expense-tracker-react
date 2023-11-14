@@ -23,19 +23,17 @@ function IncomeExpense(){
 
 
     return (
-        <div className="flex justify-around border border-green-800">
-            <div className="income flex flex-col">
-                <h2>INCOME</h2>
-                <p>${income}.00</p>
+        <div className="flex justify-around border border-gray-500 rounded my-3 py-2 font-medium">
+            
+            <div className="income flex flex-col ">
+                <h2 className="text-xl">INCOME</h2>
+                <p className="text-green-500 text-xl">${income}.00</p>
             </div>
 
             <div className="expense flex flex-col">
-                <h2>EXPENSE</h2>
-                <p>${expense}.00</p>
+            <h2 className="text-xl">EXPENSE</h2>
+                <p className="text-red-500 text-xl">${expense}.00</p>
             </div>
-
-            
-
 
         </div>
     )

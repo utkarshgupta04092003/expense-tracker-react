@@ -2,6 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Screenshots
+### Home Page
+![image](https://github.com/utkarshgupta04092003/expense-tracker-react/assets/63789702/efbc3e85-7807-4f48-9af7-f9f8add0c690)
+
+### Income Added
+![image](https://github.com/utkarshgupta04092003/expense-tracker-react/assets/63789702/04aabab3-2514-45bc-b222-7f06189f9dc4)
+
+### Expense Added
+![image](https://github.com/utkarshgupta04092003/expense-tracker-react/assets/63789702/ec038ffe-7f4f-42e5-b67d-7efb86e5f08d)
+
+
 ## Available Scripts
 
 In the project directory, you can run:

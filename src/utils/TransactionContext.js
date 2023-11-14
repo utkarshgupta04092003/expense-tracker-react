@@ -20,9 +20,11 @@ export const TransactionContext = createContext();
 
 export const TransactionContextProvider = ({children}) =>{
 
-    const [transaction, setTransaction] = useState(initialState);
+    const [transaction, setTransaction] = useState([]);
     function updateTransaction(trans){
-        setTransaction(trans);
+        console.log('update transaction called');
+        setTransaction([...trans]); // Create a new array reference
+        console.log('transaction upated successfully , these are the datta');
     }
     return(
         <TransactionContext.Provider value={{transaction, updateTransaction, setTransaction}}>

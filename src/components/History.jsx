@@ -3,7 +3,7 @@ import { TransactionContext } from "../utils/TransactionContext";
 
 function SingleHistory({trans}){
     return(
-        <div className="flex justify-between">
+        <div className="flex justify-around">
             <div>
                 {trans.text}
                 </div>

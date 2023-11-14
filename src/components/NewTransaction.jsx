@@ -4,14 +4,15 @@ import { TransactionContext } from "../utils/TransactionContext";
 function NewTransaction(){
     const [text, setText] = useState('');
     const [amount, setAmount] = useState('');
-    const [render, setRender] = useState(0);
     const {transaction, updateTransaction, setTransaction} = useContext(TransactionContext);
 
 
     const AddTransaction = (e)=>{
         e.preventDefault();
+
+        let id = transaction.length==0 ? 0 : transaction[0].id+1;
         const currTrans = {
-            id: transaction[0].id+1,
+            id: id,
             text: text,
             amount: amount
         }
@@ -21,8 +22,6 @@ function NewTransaction(){
         // setTransaction(transaction);
         updateTransaction(transaction);
 
-        // setText('');
-        // setAmount('');
         console.log(transaction)
     }
     return(
